@@ -1,0 +1,85 @@
+new code/lookup table:  800a0c00
+
+inventory size:  800ebb6e
+inventory start: 800ec350
+
+item ui size:  800e7cb4
+item ui start: 800b0df0
+
+book ui size:  800e7cb8
+book ui start: 800b0e3b
+
+800320e4:
+    800ec3d0[itemCode & 0xff] = 3
+    move 800ec350 down
+    800ec350 = itemCode & 0xff
+    800ebb6e = 800ebb6e + 1
+
+80030ed8:
+    move 800ec350 up
+    800ebb6e = 800ebb6e - 1
+
+8006eaa8: add to item ui
+8006eab0: add to book ui
+
+item id < 0x4b => item
+
+item storage:
+800320f8: update offset for sb
+80032188: update id for sb
+
+item display:
+80030cc0: update second argument
+
+other inventory stores:
+80030f14 (inventory shift up)
+80030f70 (inventory shift down)
+80030f88 (inventory shift down)
+80032170 (inventory shift down)
+
+inventory size updates:
+80032198
+80030F40
+80030F94
+
+status update calls:
+80031d18
+800323d8
+80033968
+8007c958
+
+80030dd0:
+modify param_1 & 0xff based on param_1 & 0xff00
+
+80053F0c:
+checks for the staff of ages
+
+current room (u16): 800ea726
+01 - dungeon
+3c - statue room
+2e - destroyed park
+36 - foyer
+05 - keeper's room
+5f - crest room
+
+80032530:
+merchant inventory check
+
+testing inventory:
+1334351F 0B07152D 2B2A0000 00000000
+00000000 00000000 00000000 00000000
+00000000 00000000 00000000 00000000
+00000000 00000000 00000000 00000000
+00000000 00000000 00000000 00000000
+00000000 00000000 00000000 00000000
+00000000 00000000 00000000 00000000
+00000000 00000000 00000000 00000000
+00000000 00000003 00000003 00000000
+00000003 00030000 00000000 00000003
+00000000 00000000 00000303 00030000
+00000000 03030000 00000000 00000000
+
+800ea710 - 800ec4d0: save game
+
+800ea893: is lever shown?
+800ea813: lever room
