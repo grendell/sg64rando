@@ -31,14 +31,7 @@ extern uint32_t initialSeed;
 uint8_t * readAndConfirmRom(const char * const filename, char * titleIdentifier) {
     fprintf(stdout, "Reading ROM file...\n");
 
-#ifdef _MSC_VER
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-#endif
     FILE * file = fopen(filename, "rb");
-#ifdef _MSC_VER
-#pragma clang diagnostic pop
-#endif
 
     if (!file) {
         fprintf(stderr, "Failed to open %s\n", filename);
@@ -320,14 +313,7 @@ bool writePatchedRom(uint8_t * rom, const char * titleIdentifier, shuffleMode_t 
     char output[32];
     sprintf(output, "roms/%s_%u_0x%08x.z64", titleIdentifier, mode + 1, initialSeed);
 
-#ifdef _MSC_VER
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-#endif
     FILE * file = fopen(output, "wb");
-#ifdef _MSC_VER
-#pragma clang diagnostic pop
-#endif
 
     if (!file) {
         fprintf(stderr, "Failed to open %s\n", output);
@@ -346,14 +332,7 @@ bool writePatchedRom(uint8_t * rom, const char * titleIdentifier, shuffleMode_t 
     fprintf(stdout, "Writing report...\n");
     strcpy(strchr(output, '.') + 1, "txt");
 
-#ifdef _MSC_VER
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-#endif
     file = fopen(output, "w");
-#ifdef _MSC_VER
-#pragma clang diagnostic pop
-#endif
 
     if (!file) {
         fprintf(stderr, "Failed to write report.\n");

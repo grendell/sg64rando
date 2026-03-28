@@ -37,7 +37,7 @@ This program will modify a user-provided ROM of [Shadowgate 64](https://en.wikip
     * Please provide your own BigEndian/z64 format backup.
     * Title Identifier: NSGE
     * [no-intro record](https://datomatic.no-intro.org/index.php?page=show_record&s=24&n=0661)
-    * Additional region support will be added in a future update.
+    * Due to structural differences, additional region support has proven more complicated than anticipated but may still be pursued if there is interest.
     * Prototype ROMs are unlikely to ever be supported.
 * [make](https://www.gnu.org/software/make/)
 * [clang](https://clang.llvm.org)
@@ -45,7 +45,7 @@ This program will modify a user-provided ROM of [Shadowgate 64](https://en.wikip
 ## Building
 * Simply run `make` from inside the project directory.
 * Depending on your operating system, a `bin/*/sg64rando` executable will be created.
-* Alternatively, prebuild binaries and select patches are available in [Releases](https://github.com/grendell/sg64rando/releases).
+* Alternatively, prebuild binaries and select patches are available in [Releases](https://github.com/grendell/sg64rando/releases) as well as [Action artifacts](https://github.com/grendell/sg64rando/actions).
 
 ## Running
 * Example usage:  `bin\win\sg64rando.exe NSGE.z64 3 0xdecafbad`

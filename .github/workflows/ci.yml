@@ -1,0 +1,36 @@
+name: CI Action
+
+on:
+  push:
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    strategy:
+      matrix:
+        os: [windows-latest, macos-latest, ubuntu-latest]
+
+        include:
+          - os: windows-latest
+            artifact_path: bin/win
+            artifact_name: sg64rando_windows.exe
+          - os: macos-latest
+            artifact_path: bin/Darwin
+            artifact_name: sg64rando_macos
+          - os: ubuntu-latest
+            artifact_path: bin/Linux
+            artifact_name: sg64rando_linux
+    runs-on: ${{ matrix.os }}
+    steps:
+      - name: checkout
+        uses: actions/checkout@v6
+      - name: make
+        run: make
+      - name: artifacts
+        uses: actions/upload-artifact@v6
+        with:
+          path: ${{ matrix.artifact_path }}
+          name: ${{ matrix.artifact_name }}
